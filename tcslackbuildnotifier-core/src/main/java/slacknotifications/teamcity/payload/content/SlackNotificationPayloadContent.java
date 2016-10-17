@@ -215,7 +215,7 @@ public class SlackNotificationPayloadContent {
         } catch (NoSuchMethodError e) {
             Loggers.SERVER.debug("SlackNotificationPayloadContent :: Could not get Branch Info by calling sRunningBuild.getBranch(). Probably an old version of TeamCity");
         }
-        setBuildStatusUrl(server.getRootUrl() + "/viewLog.html?buildTypeId=" + getBuildTypeId() + "&buildId=" + getBuildId());
+        setBuildStatusUrl(server.getRootUrl() + "viewLog.html?buildTypeId=" + getBuildTypeId() + "&buildId=" + getBuildId());
         String branchSuffix = (getBranchIsDefault() != null && getBranchIsDefault()) || getBranchDisplayName() == null ? "" : (" [" + getBranchDisplayName() + "]");
         setBuildDescriptionWithLinkSyntax(String.format("<" + getBuildStatusUrl() + "|" + getBuildResult() + " - " + sRunningBuild.getBuildType().getFullName() + " #" + sRunningBuild.getBuildNumber() + branchSuffix + ">"));
     }
